@@ -27,9 +27,6 @@ $posts = $data['posts'] ?? [];
             min-height: 100vh;
             padding: 40px 80px;
             color: white;
-            background:
-                linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.85)),
-                url("../assets/bg valo.png") no-repeat center center/cover;
         }
 
         body>div>div:first-child {
@@ -46,7 +43,7 @@ $posts = $data['posts'] ?? [];
         }
 
         body>div>div:first-child p {
-            color: #ffffff;
+            color: #000000;
             font-size: 18px;
         }
 
