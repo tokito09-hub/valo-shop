@@ -144,11 +144,62 @@ $full_name = htmlspecialchars($_SESSION['full_name']);
             text-decoration: none;
         }
 
+        .top-nav {
+            position: absolute;
+            top: 40px;
+            right: 80px;
+            display: flex;
+            align-items: center;
+            width: auto;
+            gap: 40px;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-right {
+            margin-left: 20px;
+            background: #ff4655;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .nav-right:hover {
+            background-color: #ff4655;
+        }
+
+        .top-nav a {
+            position: relative;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 5px;
+            transition: 0.3s;
+        }
+
+        .top-nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: 2px;
+            background: #ff4655;
+        }
+
+        .top-nav a:hover::after {
+            width: 100%;
+        }
+
         @font-face {
             font-family: 'Valorant Font.ttf';
             src: url('../assets/Valorant Font.ttf') format('truetype');
         }
-
     </style>
 
 </head>
@@ -160,11 +211,17 @@ $full_name = htmlspecialchars($_SESSION['full_name']);
             <p>You are logged in as <strong><?= $full_name ?></strong>. Explore the sections below.</p>
         </div>
 
-        <div>
-            <a href="../landing-page/logout.php">
-                <span>Logout</span>
-            </a>
-        </div>
+        <nav class="top-nav">
+            <div class="nav-left">
+                <a href="products.php" class="<?= $active == 'dashboard' ? 'active' : '' ?>">PRODUCTS</a>
+                <a href="carts.php" class="<?= $active == 'products' ? 'active' : '' ?>">CARTS</a>
+                <a href="posts.php" class="<?= $active == 'carts' ? 'active' : '' ?>">POST</a>
+            </div>
+
+            <div class="nav-right">
+                <a href="../landing-page/logout.php" class="logout">Logout</a>
+            </div>
+        </nav>
 
         <div>
             <h1>DASHBOARD</h1>
@@ -187,7 +244,7 @@ $full_name = htmlspecialchars($_SESSION['full_name']);
                 <h3>POSTS</h3>
                 <p>Browse blog posts</p>
             </a>
-            </nav>
+
         </div>
 
         <p>
